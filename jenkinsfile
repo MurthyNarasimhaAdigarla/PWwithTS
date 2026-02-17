@@ -26,5 +26,11 @@ pipeline {
                 bat 'npx playwright test --reporter=list'
             }
         }
+        stage('Debug') {
+            steps {
+                bat 'dir'
+                bat 'cd'
+            }
+        }
     }
 }
