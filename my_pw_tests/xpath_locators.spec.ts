@@ -13,5 +13,6 @@ test("Verify the title of the page ", async ({ page }) => {
     await page.getByAltText("Picture of Nike Floral Roshe Customized Running Shoes").click();
     console.log(await page.locator("//span[id='price-value-26']").innerText());
 
+    
 
 })
