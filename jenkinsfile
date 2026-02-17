@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build Java') {
             steps {
                 bat 'javac src/**/*.java'
             }
         }
-        stage('Unit Test') {
+        stage('Run JUnit Tests') {
             steps {
                 bat 'java org.junit.runner.JUnitCore MyTests'
             }
@@ -16,12 +16,12 @@ pipeline {
                 echo 'Deploying application...'
             }
         }
-        stage('Install') {
+        stage('Install Node Modules') {
             steps {
                 bat 'npm install'
             }
         }
-        stage('Playwright Test') {
+        stage('Run Playwright Tests') {
             steps {
                 bat 'npx playwright test --reporter=list'
             }
