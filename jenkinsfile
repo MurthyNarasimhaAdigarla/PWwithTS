@@ -6,7 +6,7 @@ pipeline {
                 bat 'javac src/**/*.java'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                 bat 'java org.junit.runner.JUnitCore MyTests'
             }
@@ -14,6 +14,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
+            }
+        }
+        stage('Install') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        stage('Playwright Test') {
+            steps {
+                bat 'npx playwright test --reporter=list'
             }
         }
     }
