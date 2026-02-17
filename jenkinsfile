@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                bat 'javac src/**/*.java'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'java org.junit.runner.JUnitCore MyTests'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
